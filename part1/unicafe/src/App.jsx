@@ -11,6 +11,11 @@ const App = () => {
   const handleNeutralClick = () => setNeutral(neutral + 1);
   const handleBadClick = () => setBad(bad + 1);
 
+  // additional stats
+  const total = good + neutral + bad;
+  const average = total === 0 ? 0 : (good - bad) / total;
+  const positivePercentage = total === 0 ? 0 : (good / total) * 100;
+
   return (
     <div>
       <h1>unicafe feedback</h1>
@@ -22,6 +27,9 @@ const App = () => {
       <p>good {good}</p>
       <p>neutral {neutral}</p>
       <p>bad {bad}</p>
+      <p>all {total}</p>
+      <p>average {average}</p>
+      <p>positive {positivePercentage} %</p>
     </div>
   );
 };
